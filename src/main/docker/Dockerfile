@@ -1,6 +1,5 @@
-FROM zhouwei/docker-test
+FROM maven:3.3.3
 VOLUME /tmp
-EXPOSE 9090 9091
-ADD docker-test-1.0.0.jar app.jar
-RUN bash -c 'touch /app.jar'
+ADD docker-spring-boot-1.0.0.jar app.jar
+EXPOSE 8080
 ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
